@@ -5,7 +5,7 @@ import Home from "./pages/home"
 import Dashboard from './pages/dashboard';
 import Products from "./components/Products/products";
 import Dash  from "./components/HeaderDash";
-import { BrowserRouter, Routes, Route} from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import Clients from './components/Customer/clients';
 import MakeOrder from './components/Orders/AddOrder';
 import Orders from './components/Orders/orders';
@@ -31,7 +31,7 @@ useEffect(()=>{
 },[])
   return (
     <div  >
-      <BrowserRouter>
+
       <Bar />
       <Routes>
       <Route path='/'element={<Home  />}/>
@@ -45,7 +45,7 @@ useEffect(()=>{
       <Route path='/contact'element={<ContactUs />}/>
       </Routes>
       <Footer />
-      </BrowserRouter>
+
       <ToastContainer />
 
     </div>
