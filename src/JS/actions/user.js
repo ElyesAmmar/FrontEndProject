@@ -8,7 +8,7 @@ import axios from 'axios';
 export const userRegister = (formData)=> async(dispatch)=>{
     dispatch(loadingUser())
     try {
-        const response = await axios.post('/api/users/register', formData)
+        const response = await axios.post('https://managementapp.onrender.com/api/users/register', formData)
         
         dispatch({
             type: USER_REGISTER,
@@ -22,7 +22,7 @@ export const userRegister = (formData)=> async(dispatch)=>{
 export const userLogin = (formData)=> async(dispatch)=>{
     dispatch(loadingUser())
     try {
-        const response = await axios.post('/api/users/login', formData)
+        const response = await axios.post('https://managementapp.onrender.com/api/users/login', formData)
         
         dispatch({
             type: USER_LOGIN,
@@ -42,7 +42,7 @@ export const getAuthUser = ()=> async(dispatch)=>{
                 "x-auth-token": localStorage.getItem('token')
             }
         }
-        const result = await axios.get('/api/users/', config)
+        const result = await axios.get('https://managementapp.onrender.com/api/users/', config)
         dispatch({
             type: GET_AUTH_USER,
             payload: result.data

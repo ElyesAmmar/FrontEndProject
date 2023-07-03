@@ -22,7 +22,7 @@ export const getProducts =(userid)=> async (dispatch)=> {
     
     dispatch({type:GET_PRODUCT_LOAD})
     try {
-        let result = await axios.get(`/api/products/${userid}`)
+        let result = await axios.get(`https://managementapp.onrender.com/api/products/${userid}`)
         
         dispatch({
             type: GET_PRODUCT_SUCCESS,
@@ -41,7 +41,7 @@ export const getProducts =(userid)=> async (dispatch)=> {
 export const postProduct =(userid,newproduct)=> async (dispatch)=> {
     
     try {
-            let result = await axios.post(`/api/products/addproduct/${userid}`, newproduct )
+            let result = await axios.post(`https://managementapp.onrender.com/api/products/addproduct/${userid}`, newproduct )
            
         dispatch({
             type: POST_PRODUCT_SUCCESS,
@@ -63,7 +63,7 @@ export const getProductById =(id)=> async(dispatch)=>{
     
     console.log(id)
     try {
-        let result = await axios.get(`/api/products/product/${id.id}`)
+        let result = await axios.get(`https://managementapp.onrender.com/api/products/product/${id.id}`)
         
         dispatch({
             type: GET_ONEPRODUCT_SUCCESS,
@@ -81,7 +81,7 @@ export const getProductById =(id)=> async(dispatch)=>{
 
 export const findProductByBarcode = (userid,barcode,quantity)=> async(dispatch)=>{
     try {
-        let result = await axios.get(`/api/products/products/${userid}`, {params : {Barcode:barcode}})
+        let result = await axios.get(`https://managementapp.onrender.com/api/products/products/${userid}`, {params : {Barcode:barcode}})
         let product = result.data.response[0]
         console.log('actions', product,barcode,quantity)
         dispatch(addProductsOrder({mongoId: product._id, Id:product.ProductId,Quantity:Number(quantity),
@@ -98,7 +98,7 @@ export const findProductByBarcode = (userid,barcode,quantity)=> async(dispatch)=
 export const updateProduct= (userid,id,update) => async(dispatch)=>{
     try {
         
-       let result =  await axios.put(`/api/products/edit/${id}`, update )
+       let result =  await axios.put(`https://managementapp.onrender.com/api/products/edit/${id}`, update )
         dispatch({
             type: UPDATE_PRODUCT,
             payload: result.data.msg
@@ -113,7 +113,7 @@ export const updateProduct= (userid,id,update) => async(dispatch)=>{
 
 export const deleteProduct = (userid,id) => async(dispatch)=>{
     try {
-        let result = await axios.delete(`/api/products/delete/${id}`)
+        let result = await axios.delete(`https://managementapp.onrender.com/api/products/delete/${id}`)
         dispatch({
             type: DELETE_PRODUCT,
             payload: result.data.msg

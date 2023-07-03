@@ -40,7 +40,7 @@ export const addClientOrder = (client)=>{
 
 export const SaveOrder = (userid,{user,order}) => async(dispatch)=>{
     try {
-        let result = await axios.post(`/api/orders/addorder/${userid}`, order)
+        let result = await axios.post(`https://managementapp.onrender.com/api/orders/addorder/${userid}`, order)
         dispatch(sendMailOrder({user, order:result.data.response}))
         dispatch({
             type:SAVE_ORDER,
@@ -58,7 +58,7 @@ export const getOrders = (userid) => async(dispatch)=>{
         type: GET_ORDERS_LOAD
     })
     try {
-        let result = await axios.get(`/api/orders/${userid}`)
+        let result = await axios.get(`https://managementapp.onrender.com/api/orders/${userid}`)
         
         dispatch({
             type: GET_ORDERS_SUCCESS,
@@ -77,7 +77,7 @@ export const getOrders = (userid) => async(dispatch)=>{
 
 export const generateInvoice= (id)=> async(dispatch)=>{
     try {
-        let result = await axios.get(`/api/orders/invoice/${id}`,{
+        let result = await axios.get(`https://managementapp.onrender.com/api/orders/invoice/${id}`,{
             responseType: 'blob', // Required to receive a binary response
           });
         console.log(result)
@@ -97,7 +97,7 @@ export const generateInvoice= (id)=> async(dispatch)=>{
 
 export const FindOrdersByMonth =(userid,month)=> async(dispatch) =>{
     try {
-        const orders = await axios.get(`/api/orders/findorders/${userid}`, {params :{Month:month}})
+        const orders = await axios.get(`https://managementapp.onrender.com/api/orders/findorders/${userid}`, {params :{Month:month}})
         dispatch({
             type:GET_ORDERS_BY_MONTH,
             payload: orders.data.response
@@ -108,7 +108,7 @@ export const FindOrdersByMonth =(userid,month)=> async(dispatch) =>{
 }
 export const sendMailOrder =(data) => async(dispatch)=>{
     try {
-       let result =  await axios.post('/api/orders/mail', data)
+       let result =  await axios.post('https://managementapp.onrender.com/api/orders/mail', data)
        dispatch({
         type : SEND_MAIL_ORDER,
         payload : result.data

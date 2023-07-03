@@ -18,7 +18,7 @@ function EditClient({id}) {
 
 const Open= async()=>{
     try {
-      let result = await axios.get(`/api/clients/client/${id}`)
+      let result = await axios.get(`https://managementapp.onrender.com/api/clients/client/${id}`)
       setClient(result.data.response)
       
     } catch (error) {
