@@ -20,7 +20,7 @@ export const getClients=(userid)=> async(dispatch)=>{
         type:GET_CLIENTS_LOAD
     })
     try {
-        const result = await axios.get(`https://managementapp.onrender.com/api/clients/${userid}`)
+        const result = await axios.get(`/api/clients/${userid}`)
         dispatch({
             type:GET_CLIENTS_SUCCESS,
             payload:result.data.response
@@ -38,7 +38,7 @@ export const getClients=(userid)=> async(dispatch)=>{
 
 export const postClient =(userid,client)=> async(dispatch)=>{
     try {
-        let result = await axios.post(`https://managementapp.onrender.com/api/clients/addclient/${userid}`, client)
+        let result = await axios.post(`/api/clients/addclient/${userid}`, client)
 
         dispatch({
             type: POST_CLIENT_SUCCESS,
@@ -59,7 +59,7 @@ export const postClient =(userid,client)=> async(dispatch)=>{
 
 export const getOneClient =(id) => async (dispatch)=>{
     try {
-        let client = await axios.get(`https://managementapp.onrender.com/api/clients/cleint${id}`)
+        let client = await axios.get(`/api/clients/cleint${id}`)
         dispatch({
             type: GET_ONECLIENT,
             payload: client.data.response
@@ -71,7 +71,7 @@ export const getOneClient =(id) => async (dispatch)=>{
 
 export const updateClient = (userid,id, client)=> async(dispatch)=>{
     try {
-        let result = await axios.put(`https://managementapp.onrender.com/api/clients/edit/${id}`, client)
+        let result = await axios.put(`/api/clients/edit/${id}`, client)
         dispatch({
             type: UPDATE_CLIENT,
             payload: result.data.msg
@@ -87,7 +87,7 @@ export const updateClient = (userid,id, client)=> async(dispatch)=>{
 
 export const deleteClient= (userid,id)=> async(dispatch)=>{
     try {
-        let result = await axios.delete(`https://managementapp.onrender.com/api/clients/delete/${id}`)
+        let result = await axios.delete(`/api/clients/delete/${id}`)
         dispatch({
             type: DELETE_CLIENT,
             payload: result.data.msg
