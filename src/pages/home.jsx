@@ -48,7 +48,7 @@ function Home() {
      
     </Form>
     </div>
-    {isAuth && <Navigate to='/dashboard' />}
+    {!isAuth ? <></>  : <Navigate to='/dashboard' />}
     </div>
   );
 }
