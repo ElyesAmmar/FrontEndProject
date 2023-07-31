@@ -20,7 +20,7 @@ function EditModal(id) {
   
 const Open= async()=>{
     try {
-      let result = await axios.get(`https://managementapp.onrender.com/api/products/product/${id.id}`)
+      let result = await axios.get(`/api/products/product/${id.id}`)
       setProduct(result.data.response)
     } catch (error) {
       console.log(error)
