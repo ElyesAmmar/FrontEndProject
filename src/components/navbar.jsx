@@ -21,7 +21,7 @@ function Bar() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" style={{position:"fixed",top:"0",width:"100%"}}>
       <Container>
-       {isAuth && <Navbar.Brand href="">{user.FirstName} {user.LastName}</Navbar.Brand> } 
+{/*        {isAuth && <Navbar.Brand href="">{user.FirstName} {user.LastName}</Navbar.Brand> }  */}
        {!isAuth && <Navbar.Brand href="">My Project Name</Navbar.Brand> } 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
